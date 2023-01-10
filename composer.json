@@ -1,0 +1,15 @@
+{
+    "name": "ggj/banco_de_dados",
+    "autoload": {
+        "psr-4": {
+            "Ggj\\BancoDeDados\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "João Pedro",
+            "email": "joao.pedreira@estudante.ufjf.br"
+        }
+    ],
+    "require": {}
+}
