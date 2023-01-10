@@ -36,7 +36,6 @@ class Connect
                 );
             } catch (PDOException $exception) {
                 die(var_dump($exception->getMessage()));
-                die("<h1>Ooopss! Erro ao conectar...</h1>");
             }
         }
 
