@@ -1,3 +1,27 @@
+<?php
+require_once __DIR__ . "/../../../vendor/autoload.php";
+
+$sql = "SELECT * FROM restaurants";
+$statement = $pdo->prepare($sql);
+$statement->execute();
+$restaurants = $statement->fetchAll();
+
+if (isset($_POST) && !empty($_POST)) {
+  $name = $_POST["name"];
+  $price = $_POST["price"];
+  $description = $_POST["description"];
+  $id_restaurant = $_POST["id_restaurant"];
+
+  $sql = "INSERT INTO products (name, price, description, id_restaurant)
+  VALUES (:name, :price, :description, :id_restaurant)";
+
+  $statement = $pdo->prepare($sql);
+  $statement->execute(
+    compact('name', 'price', 'description', 'id_restaurant')
+  );
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -27,7 +51,7 @@
     <?php include './src/views/includes/navbar.php' ?>
       <div class="mb-4">
       <h3 class="mb-4">Cadastro de produtos</h3>
-        <form>
+        <form action="formProducts.php" method="POST">
           <div class="container text-start">
             <div class="row mb-4">
             <div class="col-4">
@@ -46,10 +70,10 @@
                 <label for="exampleInputEmail1" class="form-label">Restaurante</label>
                 <div>
                   <select class="form-select" aria-label="Default select example" name="id_restaurant">
-                    <option selected>Selecione o telefone</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option selected>Selecione o restaurante</option>
+                    <?php foreach ($restaurants as $restaurant) : ?>
+                      <option value="<?= $restaurant->id ?>"><?= $restaurant->name ?></option>
+                    <?php endforeach; ?>
                   </select>
                 </div>
               </div>

@@ -1,3 +1,45 @@
+<?php
+require_once __DIR__ . "/../../../vendor/autoload.php";
+
+$sql = "SELECT * FROM restaurants";
+$statement = $pdo->prepare($sql);
+$statement->execute();
+$restaurants = $statement->fetchAll();
+
+if (isset($_POST) && !empty($_POST)) {
+  // Insert phone
+  $country = $_POST["country"];
+  $ddd = $_POST["ddd"];
+  $phone_number = $_POST["phone_number"];
+
+  $sql = "INSERT INTO phones (country, ddd, phone_number)
+  VALUES (:country, :ddd, :phone_number)";
+
+  $statement = $pdo->prepare($sql);
+  $statement->execute(
+    compact('country', 'ddd', 'phone_number')
+  );
+
+  // Insert motoboy
+  $statement = $pdo->prepare("SELECT * FROM phones ORDER BY id DESC LIMIT 1");
+  $statement->execute();
+  $id_phone = $statement->fetchAll()[0]->id;
+
+  $name = $_POST["name"];
+  $license_plate = $_POST["license_plate"];
+  $CPF = $_POST["CPF"];
+  $id_restaurant = $_POST["id_restaurant"];
+
+  $sql = "INSERT INTO motoboys (name, license_plate, CPF, id_restaurant, id_phone)
+  VALUES (:name, :license_plate, :CPF, :id_restaurant, :id_phone)";
+
+  $statement = $pdo->prepare($sql);
+  $statement->execute(
+    compact('name', 'license_plate', 'CPF', 'id_restaurant', 'id_phone')
+  );
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -27,7 +69,7 @@
       <?php include './src/views/includes/navbar.php' ?>
       <div class="mb-4">
         <h3 class="mb-4">Cadastro de motoboys</h3>
-        <form>
+        <form action="formMotoboys.php" method="POST">
           <div class="container text-start">
             <div class="row mb-4">
               <div class="col-4">
@@ -47,9 +89,9 @@
                 <div>
                   <select class="form-select" aria-label="Default select example" name="id_restaurant">
                     <option selected>Selecione o restaurante</option>
-                    <option value="1">Cliente</option>
-                    <option value="2">Administrador</option>
-                    <option value="3">Dono de restaurante</option>
+                    <?php foreach ($restaurants as $restaurant) : ?>
+                      <option value="<?= $restaurant->id ?>"><?= $restaurant->name ?></option>
+                    <?php endforeach; ?>
                   </select>
                 </div>
               </div>

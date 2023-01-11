@@ -1,3 +1,23 @@
+<?php
+require_once __DIR__ . "/../../../vendor/autoload.php";
+
+if (isset($_POST) && !empty($_POST)) {
+  $name = $_POST["name"];
+
+  $sql = "
+    INSERT INTO
+        cities (name)
+    VALUES
+        (:name)
+  ";
+  
+  $statement = $pdo->prepare($sql);
+  $statement->execute(
+    compact('name')
+  );
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -27,7 +47,7 @@
         <?php include './src/views/includes/navbar.php' ?>
             <div class="mb-4">
                 <h3 class="mb-4">Cadastro de cidade</h3>
-                <form>
+                <form action="formCities.php" method="POST">
                     <div class="container text-start">
                         <div class="row mb-4">
                             <div class="col-4">

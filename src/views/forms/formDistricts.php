@@ -1,3 +1,26 @@
+<?php
+require_once __DIR__ . "/../../../vendor/autoload.php";
+
+$sql = "SELECT * FROM cities";
+
+$statement = $pdo->prepare($sql);
+$statement->execute();
+
+$cities = $statement->fetchAll();
+
+if (isset($_POST) && !empty($_POST)) {
+  $name = $_POST["name"];
+  $id_city = $_POST["id_city"];
+
+  $sql = "INSERT INTO districts (name, id_city) VALUES (:name, :id_city)";
+
+  $statement = $pdo->prepare($sql);
+  $statement->execute(
+    compact('name', 'id_city')
+  );
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -21,13 +44,13 @@
 <body>
   <div class="wrapper">
 
-  <?php include './src/views/includes/sidebar.php' ?>
+    <?php include './src/views/includes/sidebar.php' ?>
     <!-- Page Content  -->
     <div id="content">
-    <?php include './src/views/includes/navbar.php' ?>
+      <?php include './src/views/includes/navbar.php' ?>
       <div class="mb-4">
-      <h3 class="mb-4">Cadastro de bairro</h3>
-        <form>
+        <h3 class="mb-4">Cadastro de bairro</h3>
+        <form action="formDistricts.php" method="POST">
           <div class="container text-start">
             <div class="row mb-4">
               <div class="col-4">
@@ -35,9 +58,9 @@
                 <div>
                   <select class="form-select" aria-label="Default select example" name="id_city">
                     <option selected>Selecione a cidade</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <?php foreach ($cities as $city) : ?>
+                      <option value="<?= $city->id ?>"><?= $city->name ?></option>
+                    <?php endforeach; ?>
                   </select>
                 </div>
               </div>

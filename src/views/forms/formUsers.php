@@ -1,3 +1,62 @@
+<?php
+require_once __DIR__ . "/../../../vendor/autoload.php";
+
+if (isset($_POST) && !empty($_POST)) {
+  // Insert phone
+  $country = $_POST["country"];
+  $ddd = $_POST["ddd"];
+  $phone_number = $_POST["phone_number"];
+
+  $sql = "INSERT INTO phones (country, ddd, phone_number)
+  VALUES (:country, :ddd, :phone_number)";
+
+  $statement = $pdo->prepare($sql);
+  $statement->execute(
+    compact('country', 'ddd', 'phone_number')
+  );
+
+  // Insert user
+  $statement = $pdo->prepare("SELECT * FROM phones ORDER BY id DESC LIMIT 1");
+  $statement->execute();
+  $id_phone = $statement->fetchAll()[0]->id;
+  
+  $name = $_POST["name"];
+  $email = $_POST["email"];
+  $password = md5($_POST["password"]);
+  $type = $_POST["type"];
+
+  $sql = "INSERT INTO users (password, name, email, id_phone)
+  VALUES (:password, :name, :email, :id_phone)";
+
+  $statement = $pdo->prepare($sql);
+  $statement->execute(
+    compact('password', 'name', 'email', 'id_phone')
+  );
+
+  // Insert specific user
+  $statement = $pdo->prepare("SELECT * FROM users ORDER BY id DESC LIMIT 1");
+  $statement->execute();
+  $id_user = $statement->fetchAll()[0]->id;
+
+  $sql = "";
+  if ($type == "1") {
+    $sql = "INSERT INTO clients (id_user)
+    VALUES (:id_user)";
+  } else if ($type == "2") {
+    $sql = "INSERT INTO administrators (id_user)
+    VALUES (:id_user)";
+  } else if ($type == "3") {
+    $sql = "INSERT INTO restaurant_owners (id_user)
+    VALUES (:id_user)";
+  }
+
+  $statement = $pdo->prepare($sql);
+  $statement->execute(
+    compact('id_user')
+  );
+}
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -27,7 +86,7 @@
       <?php include './src/views/includes/navbar.php' ?>
       <div class="mb-4">
         <h3 class="mb-4">Cadastro de usuários</h3>
-        <form>
+        <form action="formUsers.php" method="POST">
           <div class="container text-start">
             <div class="row mb-4">
               <div class="col-4">
