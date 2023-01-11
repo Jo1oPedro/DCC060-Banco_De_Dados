@@ -10,10 +10,10 @@ class Connect
     private const HOST = "localhost";
     private const USER = "root";
     private const DBNAME = "dcc060_banco_de_dados";
-    private const PASSWD = "";
+    private const PASSWD = ""; 
 
     private const OPTIONS = [
-        PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
+        //PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
         PDO::ATTR_CASE => PDO::CASE_NATURAL
@@ -29,7 +29,7 @@ class Connect
         if(empty(self::$instance)) {
             try {
                 self::$instance = new PDO(
-                    "mysql:dbname=" . self::DBNAME . ";host=" . self::HOST . ":3306",
+                    "pgsql:dbname=" . self::DBNAME . ";host=" . self::HOST . ":5432",
                     self::USER,
                     self::PASSWD,
                     self::OPTIONS
