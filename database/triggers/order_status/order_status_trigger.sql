@@ -24,6 +24,3 @@ CREATE TRIGGER order_status
 	WHEN (new.status = 'DELIVERED')
 	EXECUTE PROCEDURE finish_order();
 
-
--- Verificações
-UPDATE deliveries SET status = 'DELIVERED' WHERE id = 3;
