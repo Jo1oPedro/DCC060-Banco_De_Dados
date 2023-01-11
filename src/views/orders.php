@@ -1,3 +1,14 @@
+<?php
+require_once __DIR__ . "/../../vendor/autoload.php";
+
+$sql = "SELECT * FROM orders";
+
+$statement = $pdo->prepare($sql);
+$statement->execute();
+
+$orders = $statement->fetchAll();
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -43,19 +54,21 @@
           </tr>
         </thead>
         <tbody>
+        <?php foreach($orders as $order): ?>
           <tr>
-            <th scope="row">1</th>
-            <td>TESTE</td>
-            <td>TESTE</td>
-            <td>TESTE</td>
-            <td>TESTE</td>
-            <td>TESTE</td>
-            <td>TESTE</td>
+            <th scope="row"><?= $order->id ?></th>
+            <td><?=date("d/m/Y", strtotime($order->order_date))?></td>
+            <td><?= $order->status ?></td>
+            <td>R$<?= $order->total_value ?></td>
+            <td><?= $order->note ?></td>
+            <td><?= $order->id_client?></td>
+            <td><?= $order->id_delivery ?></td>
             <td>
               <button type="submit" class="btn btn-info">E</button>
               <button type="submit" class="btn btn-danger">X</button>
             </td>
           </tr>
+          <?php endforeach; ?>
         </tbody>
       </table>
 
