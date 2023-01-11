@@ -1,3 +1,20 @@
+<?php
+require_once __DIR__ . "/../../vendor/autoload.php";
+
+if (isset($_GET['restaurant']) && !empty($_GET['restaurant'])) {
+  $id_restaurant = $_GET['restaurant'];
+  $sql = "SELECT * FROM products WHERE id_restaurant = :id_restaurant";
+  $statement = $pdo->prepare($sql);
+  $statement->execute(compact('id_restaurant'));
+} else {
+  $sql = "SELECT * FROM products";
+  $statement = $pdo->prepare($sql);
+  $statement->execute();
+}
+
+$products = $statement->fetchAll();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -25,7 +42,7 @@
     <!-- Page Content  -->
     <div id="content">
       <?php include 'includes/navbar.php' ?>
-      <h3 class="mb-4">Usuários</h3>
+      <h3 class="mb-4">Produtos</h3>
       <div class="d-flex justify-content-end mb-4">
         <a href="/src/views/forms/formProducts.php"><button class="btn btn-primary">Cadastrar</button></a>
       </div>
@@ -41,17 +58,19 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>TESTE</td>
-            <td>TESTE</td>
-            <td>TESTE</td>
-            <td>TESTE</td>
-            <td>
-              <button type="submit" class="btn btn-info">E</button>
-              <button type="submit" class="btn btn-danger">X</button>
-            </td>
-          </tr>
+          <?php foreach ($products as $product) : ?>
+            <tr>
+              <th scope="row"><?= $product->id ?></th>
+                <td><?= $product->name ?></td>
+                <td><?= $product->price ?></td>
+                <td><?= $product->description ?></td>
+                <td><?= $product->id_restaurant ?></td>
+                <td>
+                  <a href="forms/formOrders.php?product=<?= $product->id ?>" type="submit" class="btn btn-info">Pedir</a>
+                  <button type="submit" class="btn btn-danger">X</button>
+                </td>
+            </tr>
+          <?php endforeach; ?>
         </tbody>
       </table>
 
