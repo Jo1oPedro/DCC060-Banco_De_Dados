@@ -25,14 +25,21 @@
     <!-- Page Content  -->
     <div id="content">
       <?php include 'includes/navbar.php' ?>
-      <h3 class="mb-4">Telefones</h3>
+      <h3 class="mb-4">Pedidos</h3>
+      <div class="d-flex justify-content-end mb-4">
+        <a href="/src/views/forms/formOrders.php"><button class="btn btn-primary">Cadastrar</button></a>
+      </div>
       <table class="table table-light table-striped">
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">País</th>
-            <th scope="col">DDD</th>
-            <th scope="col">Número</th>
+            <th scope="col">Data</th>
+            <th scope="col">Status</th>
+            <th scope="col">Valor total</th>
+            <th scope="col">Nota</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Delivery</th>
+            <th scope="col">Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -41,6 +48,13 @@
             <td>TESTE</td>
             <td>TESTE</td>
             <td>TESTE</td>
+            <td>TESTE</td>
+            <td>TESTE</td>
+            <td>TESTE</td>
+            <td>
+              <button type="submit" class="btn btn-info">E</button>
+              <button type="submit" class="btn btn-danger">X</button>
+            </td>
           </tr>
         </tbody>
       </table>

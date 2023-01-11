@@ -26,7 +26,7 @@
     <div id="content">
       <?php include './src/views/includes/navbar.php' ?>
       <div class="mb-4">
-        <h3 class="mb-4">Cadastro de usuários</h3>
+        <h3 class="mb-4">Cadastro de motoboys</h3>
         <form>
           <div class="container text-start">
             <div class="row mb-4">
@@ -35,18 +35,18 @@
                 <input type="text" class="form-control" name="name">
               </div>
               <div class="col-4">
-                <label for="exampleInputEmail1" class="form-label">Email</label>
-                <input type="text" class="form-control" name="email">
+                <label for="exampleInputEmail1" class="form-label">Placa da moto</label>
+                <input type="text" class="form-control" name="license_plate">
               </div>
               <div class="col-4">
-                <label for="exampleInputEmail1" class="form-label">Senha</label>
-                <input type="text" class="form-control" name="password">
+                <label for="exampleInputEmail1" class="form-label">CPF</label>
+                <input type="text" class="form-control" name="CPF">
               </div>
               <div class="col-4">
-                <label for="exampleInputEmail1" class="form-label">Tipo</label>
+                <label for="exampleInputEmail1" class="form-label">Restaurante</label>
                 <div>
-                  <select class="form-select" aria-label="Default select example" name="type">
-                    <option selected>Selecione o tipo de usuário</option>
+                  <select class="form-select" aria-label="Default select example" name="id_restaurant">
+                    <option selected>Selecione o restaurante</option>
                     <option value="1">Cliente</option>
                     <option value="2">Administrador</option>
                     <option value="3">Dono de restaurante</option>

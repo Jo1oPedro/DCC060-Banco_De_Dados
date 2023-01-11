@@ -40,13 +40,13 @@
           <a href="/src/views/clients.php">Clientes</a>
         </li>
         <li>
-          <a href="#">Motoboys</a>
+          <a href="/src/views/motoboys.php">Motoboys</a>
         </li>
         <li>
-          <a href="#">Deliveries </a>
+          <a href="/src/views/deliveries.php">Deliveries</a>
         </li>
         <li>
-          <a href="#">Orders</a>
+          <a href="/src/views/orders.php">Pedidos</a>
         </li>
         <li>
           <a href="#">Discount_coupons</a>

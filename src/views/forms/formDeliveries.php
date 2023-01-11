@@ -26,47 +26,31 @@
     <div id="content">
       <?php include './src/views/includes/navbar.php' ?>
       <div class="mb-4">
-        <h3 class="mb-4">Cadastro de usuários</h3>
+        <h3 class="mb-4">Cadastro de delivery</h3>
         <form>
           <div class="container text-start">
             <div class="row mb-4">
               <div class="col-4">
-                <label for="exampleInputEmail1" class="form-label">Nome</label>
-                <input type="text" class="form-control" name="name">
-              </div>
-              <div class="col-4">
-                <label for="exampleInputEmail1" class="form-label">Email</label>
-                <input type="text" class="form-control" name="email">
-              </div>
-              <div class="col-4">
-                <label for="exampleInputEmail1" class="form-label">Senha</label>
-                <input type="text" class="form-control" name="password">
-              </div>
-              <div class="col-4">
-                <label for="exampleInputEmail1" class="form-label">Tipo</label>
+                <label for="exampleInputEmail1" class="form-label">Status</label>
                 <div>
-                  <select class="form-select" aria-label="Default select example" name="type">
-                    <option selected>Selecione o tipo de usuário</option>
+                  <select class="form-select" aria-label="Default select example" name="status">
+                    <option selected>Selecione o status</option>
+                    <option value="1">WAITING</option>
+                    <option value="2">ON THE WAY</option>
+                    <option value="3">DELIVERED</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-4">
+                <label for="exampleInputEmail1" class="form-label">Motoboy</label>
+                <div>
+                  <select class="form-select" aria-label="Default select example" name="id_motoboy">
+                    <option selected>Selecione o motoboy</option>
                     <option value="1">Cliente</option>
                     <option value="2">Administrador</option>
                     <option value="3">Dono de restaurante</option>
                   </select>
                 </div>
-              </div>
-            </div>
-            <p>Cadastrar telefone</p>
-            <div class="row mb-4">
-              <div class="col-4">
-                <label for="exampleInputEmail1" class="form-label">País</label>
-                <input type="text" class="form-control" name="country">
-              </div>
-              <div class="col-4">
-                <label for="exampleInputEmail1" class="form-label">DDD</label>
-                <input type="text" class="form-control" name="ddd">
-              </div>
-              <div class="col-4">
-                <label for="exampleInputEmail1" class="form-label">Número</label>
-                <input type="text" class="form-control" name="phone_number">
               </div>
             </div>
           </div>
