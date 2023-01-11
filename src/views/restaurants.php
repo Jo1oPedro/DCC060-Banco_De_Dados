@@ -1,3 +1,15 @@
+<?php
+require_once __DIR__ . "/../../vendor/autoload.php";
+
+$sql = "SELECT * FROM restaurants";
+
+$statement = $pdo->prepare($sql);
+$statement->execute();
+
+$restaurants = $statement->fetchAll();
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -44,20 +56,21 @@
           </tr>
         </thead>
         <tbody>
+          <?php foreach($restaurants as $restaurant): ?>
           <tr>
-            <th scope="row">1</th>
-            <td>TESTE</td>
-            <td>TESTE</td>
-            <td>TESTE</td>
-            <td>TESTE</td>
-            <td>TESTE</td>
-            <td>TESTE</td>
-            <td>TESTE</td>
+            <th scope="row"><?= $restaurant->id ?></th>
+            <td><?= $restaurant->name ?></td>
+            <td><?= $restaurant->minimal_value ?></td>
+            <td><?= $restaurant->description ?></td>
+            <td><?= $restaurant->rating_average ?></td>
+            <td><?= $restaurant->rating_count ?></td>
+            <td><?= $restaurant->cnpj ?></td>
+            <td><?= $restaurant->id_address ?></td>
             <td>
-              <button type="submit" class="btn btn-info">E</button>
-              <button type="submit" class="btn btn-danger">X</button>
+              <button class="btn btn-info" onclick="window.location.href = 'http://localhost:8000/src/views/products.php?restaurant=<?=$restaurant->id?>'">Produtos</button>
             </td>
           </tr>
+          <?php endforeach; ?>
         </tbody>
       </table>
 
