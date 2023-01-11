@@ -49,10 +49,10 @@
           <a href="/src/views/orders.php">Pedidos</a>
         </li>
         <li>
-          <a href="#">Discount_coupons</a>
+          <a href="/src/views/discount_coupons.php">Cupons de desconto</a>
         </li>
         <li>
-          <a href="#">Restaurant_categories</a>
+          <a href="/src/views/restaurant_categories.php">Categorias de restaurante</a>
         </li>
         <li>
           <a href="#">Ratings</a>

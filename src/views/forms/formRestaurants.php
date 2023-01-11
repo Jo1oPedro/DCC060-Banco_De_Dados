@@ -57,6 +57,17 @@
                   </select>
                 </div>
               </div>
+              <div class="col-4">
+                <label for="exampleInputEmail1" class="form-label">Categorias</label>
+                <div>
+                  <select class="form-select" aria-label="Default select example" name="id_category">
+                    <option selected>Selecione as categorias</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
             </div>
           </div>
           <div class="d-flex justify-content-end">
