@@ -25,6 +25,7 @@
         <!-- Page Content  -->
         <div id="content">
             <?php include 'includes/navbar.php' ?>
+            <h3 class="mb-4">Cidades</h3>
             <div class="d-flex justify-content-end mb-4">
                 <a href="/src/views/forms/formCities.php"><button class="btn btn-primary">Cadastrar</button></a>
             </div>

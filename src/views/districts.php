@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-  <title>Collapsible sidebar using Bootstrap 4</title>
+  <title></title>
 
   <!-- Bootstrap CSS CDN -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
@@ -25,6 +25,7 @@
     <!-- Page Content  -->
     <div id="content">
       <?php include 'includes/navbar.php' ?>
+      <h3 class="mb-4">Bairros</h3>
       <div class="d-flex justify-content-end mb-4">
         <a href="/src/views/forms/formDistricts.php"><button class="btn btn-primary">Cadastrar</button></a>
       </div>
@@ -34,7 +35,7 @@
             <th scope="col">#</th>
             <th scope="col">Nome</th>
             <th scope="col">Cidade</th>
-            <th scope="col">Excluir</th>
+            <th scope="col">Ações</th>
           </tr>
         </thead>
         <tbody>

@@ -21,20 +21,32 @@
 <body>
   <div class="wrapper">
 
-  <?php include './src/views/includes/sidebar.php' ?>
+    <?php include './src/views/includes/sidebar.php' ?>
     <!-- Page Content  -->
     <div id="content">
-    <?php include './src/views/includes/navbar.php' ?>
+      <?php include './src/views/includes/navbar.php' ?>
       <div class="mb-4">
-      <h3 class="mb-4">Cadastro de bairro</h3>
+        <h3 class="mb-4">Cadastro de usuários</h3>
         <form>
           <div class="container text-start">
             <div class="row mb-4">
               <div class="col-4">
-                <label for="exampleInputEmail1" class="form-label">Cidade</label>
+                <label for="exampleInputEmail1" class="form-label">Nome</label>
+                <input type="text" class="form-control" name="name">
+              </div>
+              <div class="col-4">
+                <label for="exampleInputEmail1" class="form-label">Email</label>
+                <input type="text" class="form-control" name="email">
+              </div>
+              <div class="col-4">
+                <label for="exampleInputEmail1" class="form-label">Senha</label>
+                <input type="text" class="form-control" name="password">
+              </div>
+              <div class="col-4">
+                <label for="exampleInputEmail1" class="form-label">Telefone</label>
                 <div>
-                  <select class="form-select" aria-label="Default select example" name="id_city">
-                    <option selected>Selecione a cidade</option>
+                  <select class="form-select" aria-label="Default select example" name="id_phone">
+                    <option selected>Selecione o telefone</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
@@ -42,8 +54,15 @@
                 </div>
               </div>
               <div class="col-4">
-                <label for="exampleInputEmail1" class="form-label">Nome</label>
-                <input type="text" class="form-control" name="name">
+                <label for="exampleInputEmail1" class="form-label">Tipo</label>
+                <div>
+                  <select class="form-select" aria-label="Default select example" name="type">
+                    <option selected>Selecione o tipo de usuário</option>
+                    <option value="1">Cliente</option>
+                    <option value="2">Administrador</option>
+                    <option value="3">Dono de restaurante</option>
+                  </select>
+                </div>
               </div>
             </div>
           </div>

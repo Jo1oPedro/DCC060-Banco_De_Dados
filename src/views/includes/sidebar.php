@@ -10,34 +10,34 @@
       <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">CRUDs</a>
       <ul class="collapse list-unstyled" id="homeSubmenu">
         <li>
-          <a href="/src/views/cities.php">Cities</a>
+          <a href="/src/views/cities.php">Cidades</a>
         </li>
         <li>
-          <a href="/src/views/districts.php">Districts</a>
+          <a href="/src/views/districts.php">Bairros</a>
         </li>
         <li>
-          <a href="/src/views/addresses.php">Addresses</a>
+          <a href="/src/views/addresses.php">Endereços</a>
         </li>
         <li>
-          <a href="#">Restaurants</a>
+          <a href="/src/views/restaurants.php">Restaurantes</a>
         </li>
         <li>
-          <a href="#">Phones</a>
+          <a href="/src/views/phones.php">Telefones</a>
         </li>
         <li>
-          <a href="#">Users</a>
+          <a href="/src/views/users.php">Usuários</a>
         </li>
         <li>
-          <a href="#">Products</a>
+          <a href="/src/views/products.php">Produtos</a>
         </li>
         <li>
-          <a href="#">Restaurant_owners</a>
+          <a href="/src/views/restaurant_owners.php">Donos de restaurante</a>
         </li>
         <li>
-          <a href="#">Administrators</a>
+          <a href="/src/views/administrators.php">Administradores</a>
         </li>
         <li>
-          <a href="#">Clients</a>
+          <a href="/src/views/clients.php">Clientes</a>
         </li>
         <li>
           <a href="#">Motoboys</a>

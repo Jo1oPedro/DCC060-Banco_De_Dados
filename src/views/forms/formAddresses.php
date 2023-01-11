@@ -26,30 +26,30 @@
     <div id="content">
       <?php include './src/views/includes/navbar.php' ?>
       <div class="mb-4">
-        <h3 class="mb-4">Cadastro de bairros</h3>
+        <h3 class="mb-4">Cadastro de endereço</h3>
         <form>
           <div class="container text-start">
             <div class="row mb-4">
               <div class="col-4">
                 <label for="exampleInputEmail1" class="form-label">CEP</label>
-                <input type="text" class="form-control" name="rua">
+                <input type="text" class="form-control" name="CEP">
               </div>
               <div class="col-4">
                 <label for="exampleInputEmail1" class="form-label">Rua</label>
-                <input type="text" class="form-control" name="rua">
+                <input type="text" class="form-control" name="street">
               </div>
               <div class="col-4">
                 <label for="exampleInputEmail1" class="form-label">Número</label>
-                <input type="text" class="form-control" name="rua">
+                <input type="text" class="form-control" name="number">
               </div>
               <div class="col-4">
                 <label for="exampleInputEmail1" class="form-label">Complemento</label>
-                <input type="text" class="form-control" name="rua">
+                <input type="text" class="form-control" name="complement">
               </div>
               <div class="col-4">
                 <label for="exampleInputEmail1" class="form-label">Bairro</label>
                 <div>
-                  <select class="form-select" aria-label="Default select example" name="cidade">
+                  <select class="form-select" aria-label="Default select example" name="id_district">
                     <option selected>Selecione o bairro</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>

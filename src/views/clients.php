@@ -25,34 +25,24 @@
     <!-- Page Content  -->
     <div id="content">
       <?php include 'includes/navbar.php' ?>
-      <h3 class="mb-4">Endereços</h3>
+      <h3 class="mb-4">Clientes</h3>
       <div class="d-flex justify-content-end mb-4">
-        <a href="/src/views/forms/formAddresses.php"><button class="btn btn-primary">Cadastrar</button></a>
       </div>
       <table class="table table-light table-striped">
         <thead>
           <tr>
-            <td scope="col">#</th>
-            <th scope="col">CEP</th>
-            <th scope="col">Rua</th>
-            <th scope="col">Número</th>
-            <th scope="col">Bairro</th>
-            <th scope="col">Complemento</th>
-            <th scope="col">Ações</th>
+            <th scope="col">#</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Email</th>
+            <th scope="col">Telefone</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <th scope="row">1</th>
-            <td scope="col">1234</td>
-            <td scope="col">Rua teste</td>
-            <td scope="col">23</td>
-            <td scope="col">Bairro teste</td>
-            <td scope="col">Complemento teste</td>
-            <td>
-              <button type="submit" class="btn btn-info">E</button>
-              <button type="submit" class="btn btn-danger">X</button>
-            </td>
+            <td>TESTE</td>
+            <td>TESTE</td>
+            <td>TESTE</td>
           </tr>
         </tbody>
       </table>

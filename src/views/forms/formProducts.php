@@ -26,24 +26,32 @@
     <div id="content">
     <?php include './src/views/includes/navbar.php' ?>
       <div class="mb-4">
-      <h3 class="mb-4">Cadastro de bairro</h3>
+      <h3 class="mb-4">Cadastro de produtos</h3>
         <form>
           <div class="container text-start">
             <div class="row mb-4">
+            <div class="col-4">
+                <label for="exampleInputEmail1" class="form-label">Nome</label>
+                <input type="text" class="form-control" name="name">
+              </div>
               <div class="col-4">
-                <label for="exampleInputEmail1" class="form-label">Cidade</label>
+                <label for="exampleInputEmail1" class="form-label">Preço</label>
+                <input type="text" class="form-control" name="price">
+              </div>
+              <div class="col-4">
+                <label for="exampleInputEmail1" class="form-label">Descrição</label>
+                <input type="text" class="form-control" name="description">
+              </div>
+              <div class="col-4">
+                <label for="exampleInputEmail1" class="form-label">Restaurante</label>
                 <div>
-                  <select class="form-select" aria-label="Default select example" name="id_city">
-                    <option selected>Selecione a cidade</option>
+                  <select class="form-select" aria-label="Default select example" name="id_restaurant">
+                    <option selected>Selecione o telefone</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
                     <option value="3">Three</option>
                   </select>
                 </div>
-              </div>
-              <div class="col-4">
-                <label for="exampleInputEmail1" class="form-label">Nome</label>
-                <input type="text" class="form-control" name="name">
               </div>
             </div>
           </div>
