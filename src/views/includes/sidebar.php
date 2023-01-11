@@ -55,13 +55,13 @@
           <a href="/src/views/restaurant_categories.php">Categorias de restaurante</a>
         </li>
         <li>
-          <a href="#">Ratings</a>
+          <a href="/src/views/ratings.php">Avaliações</a>
         </li>
         <li>
-          <a href="#">Clients_addresses</a>
+          <a href="/src/views/clients_addresses.php">Clientes/Endereços</a>
         </li>
         <li>
-          <a href="#">Schedules</a>
+          <a href="/src/views/schedules.php">Horários</a>
         </li>
         <li>
           <a href="#">Favorites </a>
