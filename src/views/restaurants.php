@@ -67,8 +67,7 @@ $restaurants = $statement->fetchAll();
             <td><?= $restaurant->cnpj ?></td>
             <td><?= $restaurant->id_address ?></td>
             <td>
-              <button class="btn btn-info" onclick="window.location.href = 'http://localhost:8000/src/views/products.php?restaurant=<?=$restaurant->id?>'">E</button>
-              <button type="submit" class="btn btn-danger">X</button> 
+              <button class="btn btn-info" onclick="window.location.href = 'http://localhost:8000/src/views/products.php?restaurant=<?=$restaurant->id?>'">Produtos</button>
             </td>
           </tr>
           <?php endforeach; ?>
