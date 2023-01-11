@@ -64,25 +64,25 @@
           <a href="/src/views/schedules.php">Horários</a>
         </li>
         <li>
-          <a href="#">Favorites </a>
+          <a href="/src/views/favorites.php">Favoritos</a>
         </li>
         <li>
-          <a href="#">Freights</a>
+          <a href="/src/views/freights.php">Fretes</a>
         </li>
         <li>
-          <a href="#">Clients_discount_coupons </a>
+          <a href="/src/views/clients_discount_coupons.php">Clientes/Cupons de desconto</a>
         </li>
         <li>
-          <a href="#">Clients_addresses_deliveries</a>
+          <a href="/src/views/clients_addresses_deliveries.php">Endereço do cliente/Delivery</a>
         </li>
         <li>
-          <a href="#">Orders_products</a>
+          <a href="/src/views/orders_products.php">Pedidos/Produtos</a>
         </li>
         <li>
-          <a href="#">Restaurant_owners_restaurants</a>
+          <a href="/src/views/restaurant_owners_restaurants.php">Dono do restaurante/Restaurante</a>
         </li>
         <li>
-          <a href="#">Restaurants_restaurant_categorie</a>
+          <a href="/src/views/restaurants_restaurant_categories.php">Categoria/Restaurante</a>
         </li>
       </ul>
     </li>

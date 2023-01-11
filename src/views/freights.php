@@ -25,25 +25,23 @@
     <!-- Page Content  -->
     <div id="content">
       <?php include 'includes/navbar.php' ?>
-      <h3 class="mb-4">Horários</h3>
+      <h3 class="mb-4">Fretes</h3>
       <div class="d-flex justify-content-end mb-4">
-        <a href="/src/views/forms/formSchedules.php"><button class="btn btn-primary">Cadastrar</button></a>
+        <a href="/src/views/forms/formFreights.php"><button class="btn btn-primary">Cadastrar</button></a>
       </div>
       <table class="table table-light table-striped">
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Inicio</th>
-            <th scope="col">Fim</th>
-            <th scope="col">Dia da semana</th>
+            <th scope="col">Valor</th>
             <th scope="col">Restaurante</th>
+            <th scope="col">Bairro</th>
             <th scope="col">Ações</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <th scope="row">1</th>
-            <td>TESTE</td>
             <td>TESTE</td>
             <td>TESTE</td>
             <td>TESTE</td>
