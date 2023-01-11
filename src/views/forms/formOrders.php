@@ -1,3 +1,69 @@
+<?php
+require_once __DIR__ . "/../../../vendor/autoload.php";
+
+$product = [];
+if (isset($_GET['product']) && !empty($_GET['product'])) {
+  $id_product = $_GET['product'];
+  $sql = "SELECT * FROM products WHERE id = :id_product";
+  $statement = $pdo->prepare($sql);
+  $statement->execute(compact('id_product'));
+  $product = $statement->fetchAll()[0];
+}
+
+if (isset($_POST) && !empty($_POST)) {
+  // Busca motoboy
+  $id_restaurant = $product->id_restaurant;
+  $sql = "SELECT id FROM motoboys WHERE id_restaurant = :id_restaurant LIMIT 1";
+  $statement = $pdo->prepare($sql);
+  $statement->execute(
+    compact('id_restaurant')
+  );
+  $id_motoboy = $statement->fetchAll()[0]->id;
+
+  // Insert delivery
+  $status = 'WAITING';
+  $sql = "INSERT INTO deliveries (status, id_motoboy)
+  VALUES (:status, :id_motoboy)";
+  $statement = $pdo->prepare($sql);
+  $statement->execute(
+    compact('status', 'id_motoboy')
+  );
+
+  // Insert order
+  $statement = $pdo->prepare("SELECT * FROM deliveries ORDER BY id DESC LIMIT 1");
+  $statement->execute();
+  $id_delivery = $statement->fetchAll()[0]->id;
+
+  $note = $_POST["note"];
+  $id_client = 1;
+  $status = "PENDANT";
+  $total_value = $product->price;
+  $order_date = date('Y-m-d H:i:s');
+
+  $sql = "INSERT INTO orders (order_date, status, total_value, note, id_client, id_delivery)
+  VALUES (:order_date, :status, :total_value, :note, :id_client, :id_delivery)";
+  $statement = $pdo->prepare($sql);
+  $statement->execute(
+    compact('order_date', 'status', 'total_value', 'note', 'id_client', 'id_delivery')
+  );
+
+  // Insert orders_products
+  $statement = $pdo->prepare("SELECT * FROM orders ORDER BY id DESC LIMIT 1");
+  $statement->execute();
+  $id_order = $statement->fetchAll()[0]->id;
+
+  $id_product = $product->id;
+  $amount = 1;
+  $sql = "INSERT INTO orders_products (id_order, id_product, amount)
+  VALUES (:id_order, :id_product, :amount)";
+  $statement = $pdo->prepare($sql);
+  $statement->execute(
+    compact('id_order', 'id_product', 'amount')
+  );
+}
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -27,75 +93,18 @@
       <?php include './src/views/includes/navbar.php' ?>
       <div class="mb-4">
         <h3 class="mb-4">Cadastro de pedidos</h3>
-        <form>
+        <h4>Informações do produto</h4>
+        <ul>
+          <li>Nome: <?= $product->name ?></li>
+          <li>Preço: <?= $product->price ?></li>
+          <li>Descrição: <?= $product->description ?></li>
+        </ul>
+        <form action="formOrders.php?product=<?= $product->id ?>" method="POST">
           <div class="container text-start">
             <div class="row mb-4">
               <div class="col-4">
-                <label for="exampleInputEmail1" class="form-label">Data</label>
-                <input type="date" class="form-control" name="order_date">
-              </div>
-              <div class="col-4">
-                <label for="exampleInputEmail1" class="form-label">Nota</label>
+                <label for="exampleInputEmail1" class="form-label">Observação</label>
                 <input type="text" class="form-control" name="note">
-              </div>
-              <div class="col-4">
-                <label for="exampleInputEmail1" class="form-label">Cliente</label>
-                <div>
-                  <select class="form-select" aria-label="Default select example" name="id_client">
-                    <option selected>Selecione o status</option>
-                    <option value="1">PENDANT</option>
-                    <option value="2">APPROVED</option>
-                    <option value="3">PREPARING</option>
-                    <option value="4">READY</option>
-                    <option value="5">FINISHED</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-4">
-                <label for="exampleInputEmail1" class="form-label">Delivery</label>
-                <div>
-                  <select class="form-select" aria-label="Default select example" name="id_delivery">
-                    <option selected>Selecione o status</option>
-                    <option value="1">PENDANT</option>
-                    <option value="2">APPROVED</option>
-                    <option value="3">PREPARING</option>
-                    <option value="4">READY</option>
-                    <option value="5">FINISHED</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-4">
-                <label for="exampleInputEmail1" class="form-label">Status</label>
-                <div>
-                  <select class="form-select" aria-label="Default select example" name="status">
-                    <option selected>Selecione o status</option>
-                    <option value="1">PENDANT</option>
-                    <option value="2">APPROVED</option>
-                    <option value="3">PREPARING</option>
-                    <option value="4">READY</option>
-                    <option value="5">FINISHED</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-            <p>Produtos</p>
-            <div class="row mb-4">
-              <div class="col-4">
-                <label for="exampleInputEmail1" class="form-label">Produtos</label>
-                <div>
-                  <select class="form-select" aria-label="Default select example" name="products[]">
-                    <option selected>Selecione os produtos</option>
-                    <option value="1">PENDANT</option>
-                    <option value="2">APPROVED</option>
-                    <option value="3">PREPARING</option>
-                    <option value="4">READY</option>
-                    <option value="5">FINISHED</option>
-                  </select>
-                </div>
-              </div>
-              <div class="col-4">
-                <label for="exampleInputEmail1" class="form-label">Valor total</label>
-                <input readOnly type="text" class="form-control" name="total_value">
               </div>
             </div>
           </div>

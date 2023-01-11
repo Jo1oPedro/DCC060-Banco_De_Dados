@@ -9,9 +9,9 @@ class Connect
 {
     private const HOST = "localhost";
     private const PORT = 5432;
-    private const USER = "postgres";
-    private const DBNAME = "trabalho";
-    private const PASSWD = "789456";
+    private const USER = "";
+    private const DBNAME = "dcc060_banco_de_dados";
+    private const PASSWD = "";
 
     private const OPTIONS = [
         //PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
