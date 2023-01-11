@@ -98,15 +98,15 @@ VALUES
 INSERT INTO
 	users (password, name, email, id_phone)
 VALUES
-	(crypt('123456', gen_salt('bf', 8)), 'Gabriel Frasson', 'frasson@email.com', 1),
-	(crypt('123456', gen_salt('bf', 8)), 'João', 'joao@email.com', 2),
-	(crypt('123456', gen_salt('bf', 8)), 'Gabriel Bahia', 'bahia@email.com', 3),
-	(crypt('123456', gen_salt('bf', 8)), 'José', 'jose@email.com', 4),
-	(crypt('123456', gen_salt('bf', 8)), 'Maria', 'maria@email.com', 5),
-	(crypt('123456', gen_salt('bf', 8)), 'Felipe', 'felipe@email.com', 6),
-	(crypt('123456', gen_salt('bf', 8)), 'Victor', 'victor@email.com', 7),
-	(crypt('123456', gen_salt('bf', 8)), 'Bárbara', 'barbara@email.com', 8),
-	(crypt('123456', gen_salt('bf', 8)), 'Pedro', 'pedro@email.com', 9);
+	(md5('123456'), 'Gabriel Frasson', 'frasson@email.com', 1),
+	(md5('123456'), 'João', 'joao@email.com', 2),
+	(md5('123456'), 'Gabriel Bahia', 'bahia@email.com', 3),
+	(md5('123456'), 'José', 'jose@email.com', 4),
+	(md5('123456'), 'Maria', 'maria@email.com', 5),
+	(md5('123456'), 'Felipe', 'felipe@email.com', 6),
+	(md5('123456'), 'Victor', 'victor@email.com', 7),
+	(md5('123456'), 'Bárbara', 'barbara@email.com', 8),
+	(md5('123456'), 'Pedro', 'pedro@email.com', 9);
 
 -- Tabela: products / Instâncias: 24
 INSERT INTO
